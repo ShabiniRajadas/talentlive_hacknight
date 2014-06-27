@@ -3,7 +3,7 @@
     <div class="span7 offset3"> 
         <div class="form-actions">     
             <legend class="section"><h3>Personal Info</h3></legend>
-            <%= form_for @user, :url => profile_create_home_index_path(@user.id), :html => { :multipart => true, method: "patch"} do |f| %>
+            <%= form_for @user, :url => profile_create_home_path(@user.id), :html => { :multipart => true, method: "patch"} do |f| %>
             <h4>  <div class = "row">                 
                 <div class="col-md-3">
                     <%= f.label :name %>:
