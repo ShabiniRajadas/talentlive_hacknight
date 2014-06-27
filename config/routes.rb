@@ -20,13 +20,15 @@ Rails.application.routes.draw do
         get 'participate_event'
         get 'profile'
         patch 'profile_create'
+        get 'my_events', as: :my_events
+
       end
   
       collection do
         get 'login'
         post 'new'
         get 'index', as: :landing
-        get 'about_us'
+        get 'about_us', as: :about_us
         get 'upcoming'
         get 'ongoing'
         get 'results'
