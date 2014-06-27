@@ -3,9 +3,9 @@ class HomeController < ApplicationController
 	def index
 	end
 	def show
-  	end
-  	def login
-  	end
+	end
+	def login
+	end
 
   def new
     user = User.find_by_gplus(params[:gplus])

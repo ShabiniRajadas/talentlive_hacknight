@@ -1,0 +1,36 @@
+<div>
+	<div class="pull-right">
+	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" data-backdrop="false" id="event_button">Create Event</button>
+	<%= render 'form'%>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<th>S.No.</th>
+				<th>Name</th>
+				<th>About</th>
+				<th>Audition Start Time</th>
+				<th>Audition End Time</th>
+				<th>Options</th>
+			</thead>
+			<tbody>
+				<% @upcoming_events.each_with_index do |e,index|%>
+				<tr>
+					<td><%= index+1 %></td>
+					<td><%= e.name%></td>
+					<td><%= e.about%></td>
+					<td><%= e.audition_start_datetime %></td>
+					<td><%= e.audition_end_datetime %></td>
+					<td>
+						<strong>
+			              <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_admin_home_path(e)%>
+			              |
+			              <%= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, '', method: :delete, data: {confirm: 'Are you sure?'}%>
+			            </strong>
+			        </td>
+				</tr>
+				<%end%>
+			</tbody>
+		</table>
+	</div>
+</div>

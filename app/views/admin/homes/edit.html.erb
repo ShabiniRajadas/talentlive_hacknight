@@ -1,0 +1,92 @@
+<div class="row-fluid">
+  <div class="span8">
+    <section class="widget">
+      <div class="body">
+        <div class="row-fluid">
+          <div class="span8">
+            <%= form_for(@event, url: admin_home_path(@event), method: :patch) do |f|%>
+            <div class="span10">
+              <div class="pull-left">
+                <%= f.label :about %>
+              </div>
+              <div class="pull-right">
+                <%= f.text_field :about, :required => "required", :class => "parsley-validated parsley-error"%>
+              </div>
+            </div>
+            <div class="span10">
+              <div class="pull-left">
+                <%= f.label :category %>
+              </div>
+              <div class="pull-right">
+                <%= f.select(:category, ['Music','Dance'], :selected => "#{@event.category}") %>
+              </div>
+            </div>
+            <div class="span10">
+              <div class="pull-left">
+                <%= f.label :start_datetime %>
+              </div>
+              <div class="pull-right">
+                <%= f.text_field :audition_start_datetime, :id => "datetimepicker_start", :value => "#{@event.audition_start_datetime.strftime("%Y/%m/%d  %H:%M")}"%>
+              </div>
+            </div>
+            <div class="span10">
+              <div class="pull-left">
+                <%= f.label :end_datetime %>
+              </div>
+              <div class="pull-right">
+                <%= f.text_field :audition_end_datetime, :id => "datetimepicker_stop", :value => "#{@event.audition_end_datetime.strftime("%Y/%m/%d  %H:%M")}"%>
+              </div>
+            </div>
+            <div class="span10">
+              <div class="pull-left">
+                <%= f.label :rules %>
+              </div>
+              <div class="pull-right">
+                <%= f.text_area :rules, :required => "required", :class => "parsley-validated parsley-error" %>
+              </div>
+            </div> 
+            <div class="span10">
+              <div class="pull-left">
+                <%= f.label :first_prize %>
+              </div>
+              <div class="pull-right">
+                <%= f.text_field :first_prize_info, :required => "required", :class => "parsley-validated parsley-error" %>
+              </div>
+            </div> 
+            <div class="span10">
+              <div class="pull-left">
+                <%= f.label :second_prize %>
+              </div>
+              <div class="pull-right">
+                <%= f.text_field :second_prize_info, :required => "required", :class => "parsley-validated parsley-error" %>
+              </div>
+            </div> 
+            <div class="span10">
+              <div class="pull-left">
+                <%= f.label :third_prize %>
+              </div>
+              <div class="pull-right">
+                <%= f.text_field :third_prize_info, :required => "required", :class => "parsley-validated parsley-error" %>
+              </div>
+            </div>
+            <div class="span10">
+              <div class="pull-left">
+                <%= f.label :change_cover_pic %>
+              </div>
+              <div class="pull-right">
+                <%= image_tag(@event.cover_pic_url)%>
+                <%= f.file_field :cover_pic_url, :required => "required", :class => "parsley-validated parsley-error" %>
+              </div>
+            </div>              
+            <div class="span10"> 
+              <div class="pull-right">                                  
+              </br><%= f.submit "Update", :class => "btn btn-primary"%>
+            </div>
+            <%end%>   
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
