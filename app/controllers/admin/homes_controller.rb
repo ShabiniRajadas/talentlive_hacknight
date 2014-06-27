@@ -32,6 +32,18 @@ class Admin::HomesController < ApplicationController
 	    end
 	end
 
+	def audition
+		params[:id] = 1
+		@event = Event.find(params[:id])
+		@users = @event.users
+	end
+
+	def save_json_data
+  	render :json => {:data => {:hang_out_url => params[:hangoutUrl], :topic => params[:topic]}}
+  	@user = User.find(params[:id])
+  	@user.update_attributes(hangouturl: params[:hangoutUrl])
+  end
+
 	private
 
 	def set_event

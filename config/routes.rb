@@ -38,10 +38,12 @@ Rails.application.routes.draw do
         collection do
           get 'upcoming_events'
           post 'create_event'
+          get 'audition'
+          get 'save_json_data'
         end
       end
     end
-
+    match 'admin/register_hangout',  to: 'admin/homes#save_json_data', via: :get
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
