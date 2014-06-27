@@ -12,8 +12,6 @@ class HomeController < ApplicationController
   end
 
   def profile_create
-    p "))))))))))))))))))))))))00"
-    p params
     @user = User.find(params[:format])
     updated = @user.update_attributes(user_params)
     if updated
