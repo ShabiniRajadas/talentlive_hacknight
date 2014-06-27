@@ -16,17 +16,15 @@ Rails.application.routes.draw do
 
   # Example resource route with options:
     resources :home do
-      # member do
-      #   get 'short'
-      #   post 'toggle'
-      # end
-  
-      collection do
-        get 'login'
-        post 'new'
-        get 'index'
+      member do
         get 'profile'
         patch 'profile_create'
+      end
+      collection do
+        post 'new'
+        get 'login'
+        get 'index', as: :landing
+        get 'about_us'
       end
     end
 
