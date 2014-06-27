@@ -30,6 +30,20 @@ Rails.application.routes.draw do
       end
     end
 
+    namespace :admin do
+      resources :homes do
+        member do
+          get 'edit'
+          post 'update'
+        end
+
+        collection do
+          get 'upcoming_events'
+          post 'create_event'
+        end
+      end
+    end
+
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
