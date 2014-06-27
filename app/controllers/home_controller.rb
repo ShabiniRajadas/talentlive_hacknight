@@ -117,7 +117,8 @@ class HomeController < ApplicationController
   end
 
   def my_events
-    
+    current_user = User.find session[:current_user]
+    @events = current_user.events
   end
 
   private
