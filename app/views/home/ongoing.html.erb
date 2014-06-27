@@ -1,0 +1,45 @@
+<h2 width="100%" style="background-color:#34495e;color:white">Ongoing Events</h2>
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+			<div id="scroller" class="carousel slide">
+				<div class="carousel-inner">
+					<div class="item active">
+						<% unless @ongoing_events.any? %>
+              <div class="row">
+								<div class="col-xs-4">
+								<div class="portfolio-item">
+									<div class="item-inner">
+										<h5>
+											No Events under here.
+										</h5>
+										<div class="overlay">
+
+										</div>
+									</div>
+								</div>
+							</div> 
+							<%else%>
+							<% @ongoing_events.each_with_index do |e,index| %>
+								<div class="col-xs-4">
+									<div class="portfolio-item">
+										<div class="item-inner">
+											<img class="img-responsive" height="285" src="<%= e.cover_pic_url%>" alt="">
+											<h5>
+												<%= e.name%>
+											</h5>
+											<div class="overlay">
+
+											</div>
+										</div>
+									</div>
+								</div> 
+								<%end%> 
+                </div><!--/.row-->
+							<%end%>                          
+					</div><!--/.item-->
+				</div>
+			</div>
+		</div>
+	</div><!--/.row-->
+</div>

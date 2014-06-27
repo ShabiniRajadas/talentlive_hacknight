@@ -28,6 +28,7 @@ gem 'spring',        group: :development
 
 gem 'devise'
 gem "simple_form", github: "plataformatec/simple_form"
+gem "carrierwave"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

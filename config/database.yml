@@ -9,7 +9,7 @@ development:
   database: rspec_development
   pool: 5
   username: postgres
-  password: postgres@123
+  password: qburst
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -21,7 +21,7 @@ test:
   database: rspec_test
   pool: 5
   username: postgres
-  password: postgres@123
+  password: qburst
   host: localhost
   
 production:
@@ -30,5 +30,5 @@ production:
   database: rspec_production
   pool: 5
   username: postgres
-  password: postgres@123
+  password: qburst
   host: localhost
