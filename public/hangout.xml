@@ -1,5 +1,7 @@
 <Module><ModulePrefs title="Proxied Hangout" height="200" width="550"><Require feature="dynamic-height"/><Require feature="rpc"/><Require feature="views"/></ModulePrefs><Content type="html">
-    	  <!DOCTYPE html>
+    	  
+<![CDATA[
+          <!DOCTYPE html>
 
     	    <script>
 
@@ -100,5 +102,6 @@
 
     	    </script>
     	    <script src="https://apis.google.com/js/client.js?onload=onClientReady"></script>
+            ]]>  
 
     	</Content></Module>
