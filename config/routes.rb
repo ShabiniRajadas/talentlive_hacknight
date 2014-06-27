@@ -39,12 +39,13 @@ Rails.application.routes.draw do
           get 'edit'
           post 'update'
           get 'change_status'
+          get 'audition'
+          delete 'destroy', as: :destroy
         end
 
         collection do
           get 'events'
           post 'create_event'
-          get 'audition'
           get 'save_json_data'
         end
       end
