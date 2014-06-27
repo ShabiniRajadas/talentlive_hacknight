@@ -17,6 +17,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :aboutme
       t.string :gender
       t.string :gplus
+      t.string :name
       t.timestamps
     end
   end
