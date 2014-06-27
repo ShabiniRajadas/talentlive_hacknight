@@ -4,8 +4,31 @@ class HomeController < ApplicationController
 	end
 	def show
   	end
-  	def login
-  	end
+  def login
+  end
+
+  def profile
+    @user = User.find(params[:format])
+  end
+
+  def profile_create
+    p "))))))))))))))))))))))))00"
+    p params
+    @user = User.find(params[:format])
+    updated = @user.update_attributes(user_params)
+    if updated
+      if @user.avatar_file_name == nil and @user.user_cloud_url == nil
+        @user.update_attribute(:user_cloud_url, "http://ensemble.stanford.edu/assets/default_profile-d80441a6f25a9a0aac354978c65c8fa9.jpg")
+      elsif @user.avatar_file_name != nil 
+        #connecting with AWS cloud
+        @file_update = @user.fog(@user.avatar.url)
+
+        @user.update_attribute(:user_cloud_url, @file_update.public_url)
+      end
+    end
+
+    redirect_to home_index_path(@user)
+  end
 
   def new
     user = User.find_by_gplus(params[:gplus])
@@ -16,7 +39,7 @@ class HomeController < ApplicationController
       @gplusId = params[:gplus]
       u = User.new(:name => params[:fullname], :gplus => params[:gplus], :email=> params[:email])
       if u.save
-       redirect_to home_index_path(u), notice: "User with name #{@fullname} and Google+ ID #{@gplusId} has been successfully registered!"
+       redirect_to profile_home_index_path(u), notice: "User with name #{@fullname} and Google+ ID #{@gplusId} has been successfully registered!"
       else
         render "index"
       end

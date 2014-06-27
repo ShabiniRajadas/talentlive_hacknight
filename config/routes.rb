@@ -25,6 +25,8 @@ Rails.application.routes.draw do
         get 'login'
         post 'new'
         get 'index'
+        get 'profile'
+        patch 'profile_create'
       end
     end
 
