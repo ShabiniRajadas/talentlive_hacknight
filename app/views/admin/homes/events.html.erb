@@ -1,5 +1,5 @@
 <div>
-	<div class="pull-right">
+	<div class="pull-right" style="margin-bottom: 40px; margin-top: 40px;">
 	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" data-backdrop="false" id="event_button">Create Event</button>
 	<%= render 'form'%>
 	</div>
@@ -9,18 +9,30 @@
 				<th>S.No.</th>
 				<th>Name</th>
 				<th>About</th>
+				<th>Status</th>
 				<th>Audition Start Time</th>
 				<th>Audition End Time</th>
+				<th>Next</th>
 				<th>Options</th>
 			</thead>
 			<tbody>
-				<% @upcoming_events.each_with_index do |e,index|%>
+				<% @events.each_with_index do |e,index|%>
 				<tr>
 					<td><%= index+1 %></td>
 					<td><%= e.name%></td>
 					<td><%= e.about%></td>
+					<td><%= e.status%></td>
 					<td><%= e.audition_start_datetime %></td>
 					<td><%= e.audition_end_datetime %></td>
+					<td>
+						<% if e.status == "Upcoming"%>
+	                    	<%= link_to 'Enable Audition', change_status_admin_home_path(e), :class=>"btn btn-success"%>
+	                  	<%elsif e.status == "Ongoing"%>
+	                    	<%= link_to 'Disable Audition',change_status_admin_home_path(e), :class=>"btn btn-danger"%>
+	                   	<%else%>
+	                   		<%= link_to 'Audition','', :class=>"btn btn-success", :disabled =>"disabled"%>
+                  		<%end%>
+					</td>
 					<td>
 						<strong>
 			              <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_admin_home_path(e)%>

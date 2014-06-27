@@ -16,10 +16,9 @@ Rails.application.routes.draw do
 
   # Example resource route with options:
     resources :home do
-      # member do
-      #   get 'short'
-      #   post 'toggle'
-      # end
+      member do
+        get 'participate_event'
+      end
   
       collection do
         get 'login'
@@ -27,6 +26,9 @@ Rails.application.routes.draw do
         get 'index'
         get 'profile'
         patch 'profile_create'
+        get 'upcoming'
+        get 'ongoing'
+        get 'results'
       end
     end
 
@@ -35,10 +37,11 @@ Rails.application.routes.draw do
         member do
           get 'edit'
           post 'update'
+          get 'change_status'
         end
 
         collection do
-          get 'upcoming_events'
+          get 'events'
           post 'create_event'
           get 'audition'
           get 'save_json_data'

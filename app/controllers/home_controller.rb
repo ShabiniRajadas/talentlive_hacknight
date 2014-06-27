@@ -1,10 +1,31 @@
 class HomeController < ApplicationController
-	
+  layout 'login', only: :login
+  before_filter :login_required, except: [:login, :new]
+
 	def index
+    p session[:current_user]
+    p "kkkkkkkkkkkkkkkkkkkk"
+    @upcoming_events = Event.where(:status => "Upcoming")
+    @ongoing_events = Event.where(:status => "Ongoing")
+    @results = Event.where(:status => "Completed")
 	end
+
 	def show
-  	end
+  end
+
   def login
+  end
+
+  def upcoming
+    @upcoming_events = Event.where(:status => "Upcoming")
+  end
+
+  def ongoing
+    @ongoing_events = Event.where(:status => "Ongoing")
+  end
+
+  def results
+    @results = Event.where(:status => "Completed")
   end
 
   def profile
@@ -25,26 +46,36 @@ class HomeController < ApplicationController
       end
     end
 
-    redirect_to home_index_path(@user)
+    redirect_to home_index_path
   end
 
   def new
     user = User.find_by_gplus(params[:gplus])
     if user
-      redirect_to home_index_path(user), notice: "You are already registered!"
+      session[:current_user] = user
+      redirect_to "/home/index", notice: "You are already registered!" and return
     else
       @fullname = params[:fullname]
       @gplusId = params[:gplus]
       u = User.new(:name => params[:fullname], :gplus => params[:gplus], :email=> params[:email])
       if u.save
+        session[:current_user] = user
        redirect_to profile_home_index_path(u), notice: "User with name #{@fullname} and Google+ ID #{@gplusId} has been successfully registered!"
       else
-        render "index"
+        redirect_to root_path
       end
     end
   end
 
   def edit
+  end
+
+  def participate_event
+    p session[:current_user]
+    p "kkkkkkkkkkkkkkk"
+    @event = Event.find(params[:id])
+    @participant = UserEvent.create(:event_id => @event.id, :user_id => session[:current_user]) if @event
+    redirect_to upcoming_home_index_path
   end
 
   def create
@@ -90,5 +121,11 @@ class HomeController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:email, :first_name, :last_name, :roles => [])
+    end
+
+    def login_required
+      if session[:current_user].nil?
+        redirect_to root_path and return
+      end
     end
 end

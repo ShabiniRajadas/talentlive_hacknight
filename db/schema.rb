@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627172256) do
+
+ActiveRecord::Schema.define(version: 20140627191225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140627172256) do
     t.string   "cover_pic_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status"
   end
 
   create_table "user_events", force: true do |t|

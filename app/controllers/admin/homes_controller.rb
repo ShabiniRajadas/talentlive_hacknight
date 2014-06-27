@@ -1,18 +1,18 @@
 class Admin::HomesController < ApplicationController
-	before_filter :set_event, only: :upcoming_events
+	before_filter :set_event, only: :events
 
-	def upcoming_events
-		@upcoming_events = Event.all
+	def events
+		@events = Event.all
 	end
 
 	def create_event
 		@event = Event.create(event_params)
-
+		@event.status = "Upcoming"
 	    respond_to do |format|
 	      if @event.save
-	        format.html { redirect_to upcoming_events_admin_homes_path, notice: 'Event was successfully created.' }
+	        format.html { redirect_to events_admin_homes_path, notice: 'Event was successfully created.' }
 	      else
-	        format.html { redirect_to upcoming_events_admin_homes_path, alert: 'Event creation shows error. Please try again.' }
+	        format.html { redirect_to events_admin_homes_path, alert: 'Event creation shows error. Please try again.' }
 	      end
 	    end
 	end
@@ -25,11 +25,18 @@ class Admin::HomesController < ApplicationController
 		@event = Event.find(params[:id])
 	    if @event.update_attributes(event_params)
 	      flash[:notice] = "Event Info Updated."
-	      redirect_to upcoming_events_admin_homes_path
+	      redirect_to events_admin_homes_path
 	    else
 	      flash[:alert] = @event.errors.messages
 	      redirect_to :back
 	    end
+	end
+
+	def change_status
+		@event = Event.find(params[:id])
+		@event.status = @event.status == "Upcoming" ? "Ongoing" : "Completed"
+		@event.save
+		redirect_to events_admin_homes_path
 	end
 
 	def audition
