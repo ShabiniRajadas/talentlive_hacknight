@@ -3,18 +3,20 @@ class HomeController < ApplicationController
 	def index
 	end
 	def show
-  end
+  	end
+  	def login
+  	end
 
   def new
     user = User.find_by_gplus(params[:gplus])
     if user
-      redirect_to root_path(user), notice: "You are already registered!"
+      redirect_to home_index_path(user), notice: "You are already registered!"
     else
       @fullname = params[:fullname]
       @gplusId = params[:gplus]
       u = User.new(:name => params[:fullname], :gplus => params[:gplus], :email=> params[:email])
       if u.save
-       redirect_to root_path(u), notice: "User with name #{@fullname} and Google+ ID #{@gplusId} has been successfully registered!"
+       redirect_to home_index_path(u), notice: "User with name #{@fullname} and Google+ ID #{@gplusId} has been successfully registered!"
       else
         render "index"
       end
