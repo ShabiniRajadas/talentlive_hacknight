@@ -1,33 +1,26 @@
 <style>
-  #main_contain{
-    background-image:url('http://www.ahmedabadwebdesigning.com/portfolio-link/images/music-dance-website-portfolio/md-06.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    width:auto;
-      }
-      h5{
-        color:white;
-      }
+body { 
+  background: url("/assets/background.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0px;
+}
 </style>
-<div id="main_contain">
-  <header id="header" class="header"  data-offset-top="20" style="background-color:#0B243B" >
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h1><span style="color:white">GoLive </span><span style="color:green">TalentLive</span></h1>
-      </div>
-      <div class="col-md-6">
-        <%#= link_to "Explore", home_path, :class =>  "btn btn-success btn-sm", :style => "float:right"%>
-      </div>
-    </div>
-  </div>
-</header>
-  <div class="row"  style="margin-top:500px;">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+<div id="main_container" style="float:right;padding-right:50px;">
+  <span style="color:white; float:right !important;"><img src="/assets/logo.png" height="100px" width="200px"></span>
+
       <h6 style="color:red;"><%= flash[:error] %></h6>
       <span id="signinButton">
-      <ul class="nav">
+      <ul style="float:right;margin-top:60px;padding-right:20px;" class="nav">
               <span
                 class="g-signin"
                 data-callback="signinCallback"
@@ -36,9 +29,9 @@
                 data-cookiepolicy="single_host_origin"
                 data-scope="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email">
               </span>
-           </span>
-        </ul>
-      
+      </ul>
+    </span>
+      </div>
 
       <%= form_tag(:controller => "home", :action => "new", :method => "post") do %>
         <div class="is-this-you"></div>
@@ -46,7 +39,6 @@
         <%= hidden_field_tag :gplus %>
         <%= hidden_field_tag :email %>
       <% end %>
-    </div>  
 
       <script type="text/javascript">
         (function() {
@@ -85,7 +77,5 @@
             };
         }
       </script>
-    
-  </div>
-  <br><br><br>
-</div>
+</body>
+</html>

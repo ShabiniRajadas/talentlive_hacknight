@@ -18,14 +18,15 @@ Rails.application.routes.draw do
     resources :home do
       member do
         get 'participate_event'
+        get 'profile'
+        patch 'profile_create'
       end
   
       collection do
         get 'login'
         post 'new'
-        get 'index'
-        get 'profile'
-        patch 'profile_create'
+        get 'index', as: :landing
+        get 'about_us'
         get 'upcoming'
         get 'ongoing'
         get 'results'

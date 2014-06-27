@@ -29,11 +29,11 @@ class HomeController < ApplicationController
   end
 
   def profile
-    @user = User.find(params[:format])
+    @user = User.find(params[:id])
   end
 
   def profile_create
-    @user = User.find(params[:format])
+    @user = User.find(params[:id])
     updated = @user.update_attributes(user_params)
     if updated
       if @user.avatar_file_name == nil and @user.user_cloud_url == nil
@@ -53,16 +53,16 @@ class HomeController < ApplicationController
     user = User.find_by_gplus(params[:gplus])
     if user
       session[:current_user] = user
-      redirect_to "/home/index", notice: "You are already registered!" and return
+      redirect_to landing_home_index_path, notice: "You are already registered!"
     else
       @fullname = params[:fullname]
       @gplusId = params[:gplus]
       u = User.new(:name => params[:fullname], :gplus => params[:gplus], :email=> params[:email])
       if u.save
         session[:current_user] = user
-       redirect_to profile_home_index_path(u), notice: "User with name #{@fullname} and Google+ ID #{@gplusId} has been successfully registered!"
+       redirect_to profile_home_path(u), notice: "User with name #{@fullname} and Google+ ID #{@gplusId} has been successfully registered!"
       else
-        redirect_to root_path
+        redirect_to root_path and return  
       end
     end
   end
@@ -110,6 +110,10 @@ class HomeController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url }
     end
+  end
+
+  def about_us
+    
   end
 
   private
