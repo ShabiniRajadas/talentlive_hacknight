@@ -22,25 +22,25 @@
   					<span class="icon-bar"></span>
   					<span class="icon-bar"></span>
   				</button>
-  				<a class="navbar-brand" href="index.html"><img src="/assets/logo.jpg" alt="logo" height="42" width="72"></a>
+  				<a class="navbar-brand" href="index.html"><img src="/assets/logo.png" alt="logo" height="42" width="72"></a>
   			</div>
   			<div class="collapse navbar-collapse">
   				<ul class="nav navbar-nav navbar-right">
-  					<li class="active"><a href="index.html">Home</a></li>
+  					<li class="active"><%= link_to "Home",landing_home_index_path %></li>
   					<li class="dropdown">
   						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Events <i class="icon-angle-down"></i></a>
   						<ul class="dropdown-menu">
-  							<li><a href="">Upcoming Events</a></li>
-  							<li><a href="">Ongoing Events</a></li>
-  							<li><a href="">Results</a></li>
+  							<li><%= link_to "Upcoming Events",upcoming_home_index_path %></li>
+  							<li><%= link_to "Ongoing Events",ongoing_home_index_path %></li>
+  							<li><%= link_to "Event Results",results_home_index_path %></li>
   						</ul>
   					</li>
-  					<li><a href="about-us.html">About Us</a></li>
+  					<li><%= link_to "About Us",about_us_home_index_path %></li>
   					<li class="dropdown">
   						<a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <i class="icon-angle-down"></i></a>
   						<ul class="dropdown-menu">
-  							<li><a href="career.html">My Events</a></li>
-  							<li><a href="blog-item.html">Profile</a></li>
+  							<li><%= link_to "My Events",my_events_home_path(session[:current_user])%></li>
+  							<li><%= link_to "Profile",profile_home_path(session[:current_user])%></li>
   							<li><a href="blog-item.html">Logout</a></li>
   						</ul>
   					</li>

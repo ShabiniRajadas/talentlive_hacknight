@@ -23,7 +23,7 @@ test:
   username: postgres
   password: qburst
   host: localhost
-  
+
 production:
   adapter: postgresql
   encoding: unicode
