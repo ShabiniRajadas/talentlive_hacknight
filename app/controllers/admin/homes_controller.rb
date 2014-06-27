@@ -39,8 +39,11 @@ class Admin::HomesController < ApplicationController
 	end
 
 	def save_json_data
+		p "(((((((((((((((((((((((9"
+			p params
   	render :json => {:data => {:hang_out_url => params[:hangoutUrl], :topic => params[:topic]}}
-  	@user = User.find(params[:id])
+  	user_id = params[:id].split('@')
+  	@user = User.find(user_id[0].to_i)
   	@user.update_attributes(hangouturl: params[:hangoutUrl])
   end
 
