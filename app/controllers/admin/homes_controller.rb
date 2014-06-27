@@ -36,11 +36,11 @@ class Admin::HomesController < ApplicationController
 		@event = Event.find(params[:id])
 		@event.status = @event.status == "Upcoming" ? "Ongoing" : "Completed"
 		@event.save
-		redirect_to events_admin_homes_path
+		url = @event.status == "Ongoing" ? audition_admin_home_path(@event) : events_admin_homes_path
+		redirect_to url 
 	end
 
 	def audition
-		params[:id] = 1
 		@event = Event.find(params[:id])
 		@users = @event.users
 	end
@@ -52,6 +52,12 @@ class Admin::HomesController < ApplicationController
   	user_id = params[:id].split('@')
   	@user = User.find(user_id[0].to_i)
   	@user.update_attributes(hangouturl: params[:hangoutUrl])
+  end
+
+  def destroy
+  	@event = Event.find(params[:id])
+  	@event.destroy
+  	redirect_to events_admin_homes_path
   end
 
 	private
