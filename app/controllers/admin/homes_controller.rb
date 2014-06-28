@@ -1,5 +1,6 @@
 class Admin::HomesController < ApplicationController
 	before_filter :set_event, only: :events
+	before_filter :check_role
 
 	def events
 		@events = Event.all
@@ -36,22 +37,26 @@ class Admin::HomesController < ApplicationController
 		@event = Event.find(params[:id])
 		@event.status = @event.status == "Upcoming" ? "Ongoing" : "Completed"
 		@event.save
-		redirect_to events_admin_homes_path
+		url = @event.status == "Ongoing" ? audition_admin_home_path(@event) : events_admin_homes_path
+		redirect_to url 
 	end
 
 	def audition
-		params[:id] = 1
 		@event = Event.find(params[:id])
 		@users = @event.users
 	end
 
 	def save_json_data
-		p "(((((((((((((((((((((((9"
-			p params
   	render :json => {:data => {:hang_out_url => params[:hangoutUrl], :topic => params[:topic]}}
   	user_id = params[:id].split('@')
   	@user = User.find(user_id[0].to_i)
   	@user.update_attributes(hangouturl: params[:hangoutUrl])
+  end
+
+  def destroy
+  	@event = Event.find(params[:id])
+  	@event.destroy
+  	redirect_to events_admin_homes_path
   end
 
 	private
@@ -62,5 +67,10 @@ class Admin::HomesController < ApplicationController
 
 	def event_params
       params.require(:event).permit(:name, :about, :rules, :category, :first_prize_info, :second_prize_info, :third_prize_info, :audition_start_datetime, :audition_end_datetime, :cover_pic_url)
+    end
+
+    def check_role
+    	user = User.find(session[:current_user])
+    	redirect_to root_path and return unless user.role == "admin"
     end
 end

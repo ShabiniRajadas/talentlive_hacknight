@@ -33,7 +33,7 @@
 											</div>
 										</div>
 									</div>
-                  <% if e.user_events.where(:user_id=>session[:current_user])%>
+                  <% if  e.users.any? and e.users.where(:user_id=>session[:current_user])%>
                     <%= link_to 'Participate', '', :class=>"btn btn-success", :id=>"participate",:disabled =>"disabled"%>
                   <%else%>
                     <%= link_to 'Participate',participate_event_home_path(e), :class=>"btn btn-success", :id=>"participate"%>

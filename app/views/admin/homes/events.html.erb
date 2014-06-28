@@ -26,9 +26,9 @@
 					<td><%= e.audition_end_datetime %></td>
 					<td>
 						<% if e.status == "Upcoming"%>
-	                    	<%= link_to 'Enable Audition', change_status_admin_home_path(e), :class=>"btn btn-success"%>
+	                    	<%= link_to 'Start Auditions', change_status_admin_home_path(e), :class=>"btn btn-success"%>
 	                  	<%elsif e.status == "Ongoing"%>
-	                    	<%= link_to 'Disable Audition',change_status_admin_home_path(e), :class=>"btn btn-danger"%>
+	                    	<%= link_to 'Finish Auditions',change_status_admin_home_path(e), :class=>"btn btn-danger"%>
 	                   	<%else%>
 	                   		<%= link_to 'Audition','', :class=>"btn btn-success", :disabled =>"disabled"%>
                   		<%end%>
@@ -37,7 +37,7 @@
 						<strong>
 			              <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_admin_home_path(e)%>
 			              |
-			              <%= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, '', method: :delete, data: {confirm: 'Are you sure?'}%>
+			              <%= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, destroy_admin_home_path(e), method: :delete, data: {confirm: 'Are you sure?'}%>
 			            </strong>
 			        </td>
 				</tr>

@@ -1,281 +1,274 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-</head><!--/head-->
-<body>
-    <header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html"><img src="/assets/logo.png" alt="logo" height="42" width="72"></a>
+  <header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><img src="/assets/logo.png" alt="logo" height="42" width="72"></a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><%= link_to "Home",landing_home_index_path %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events <i class="icon-angle-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Upcoming Events",upcoming_home_index_path %></li>
+              <li><%= link_to "Ongoing Events",ongoing_home_index_path %></li>
+              <li><%= link_to "Event Results",results_home_index_path %></li>
+            </ul>
+          </li>
+          <li><%= link_to "About Us",about_us_home_index_path %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <i class="icon-angle-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="career.html">My Events</a></li>
+              <li><%= link_to "Profile",profile_home_path(session[:current_user])%></li>
+              <li><a href="blog-item.html">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header><!--/header-->
+  <section id="main-slider" class="no-margin">
+    <div class="carousel slide wet-asphalt">
+      <ol class="carousel-indicators">
+        <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+        <li data-target="#main-slider" data-slide-to="1"></li>
+        <li data-target="#main-slider" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active" style="background-image: url(/assets/sing1.jpg)">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="carousel-content centered">
+                  <h2 class="animation animated-item-1">Powerful and Responsive Web Design</h2>
+                  <p class="animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                </div>
+              </div>
             </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events <i class="icon-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="">Upcoming Events</a></li>
-                            <li><a href="">Ongoing Events</a></li>
-                            <li><a href="">Results</a></li>
-                        </ul>
-                    </li>
-                    <li><%= link_to "About Us",about_us_home_index_path %></a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <i class="icon-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="career.html">My Events</a></li>
-                            <li><a href="blog-item.html">Profile</a></li>
-                            <li><a href="blog-item.html">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
+          </div>
+        </div><!--/.item-->
+        <div class="item" style="background-image: url(/assets/photography.jpg)">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="carousel-content center centered">
+                  <h2 class="boxed animation animated-item-1">Clean, Crisp, Powerful and Responsive Web Design</h2>
+                  <p class="boxed animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                  <br>
+                  <a class="btn btn-md animation animated-item-3" href="#">Learn More</a>
+                </div>
+              </div>
             </div>
+          </div>
+        </div><!--/.item-->
+        <div class="item" style="background-image: url(/assets/dance.jpg)">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="carousel-content centered">
+                  <h2 class="animation animated-item-1">Powerful and Responsive Web Design Theme</h2>
+                  <p class="animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+                  <a class="btn btn-md animation animated-item-3" href="#">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!--/.item-->
+      </div><!--/.carousel-inner-->
+    </div><!--/.carousel-->
+    <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+      <img src="/assets/sprite_prev.png"></a>
+    </a>
+    <a class="next hidden-xs" href="#main-slider" data-slide="next">
+     <img src="/assets/sprite_next.png"></a>
+   </a>
+ </section><!--/#main-slider-->
+
+
+
+ <!-- <section id="recent-works"> -->
+ <h2 width="100%" style="background-color:#34495e;color:white">Upcoming Events</h2>
+ <div class="container">
+  <div class="row">
+   <div class="col-md-3">
+    <h3>More fun on its way!!</h3>
+    <p>These are the top upcoming events. Participate and showcase your talent...</p>
+    <div class="btn-group">
+     <%= link_to 'View More', upcoming_home_index_path, :class=>"btn btn-danger"%>
+   </div>
+
+   <p class="gap"></p>
+ </div>
+ <div class="col-md-9">
+  <div id="scroller" class="carousel slide">
+   <div class="carousel-inner">
+    <div class="item active">
+     <div class="row">
+      <% unless @upcoming_events.any? %>
+      <div class="col-xs-4">
+       <div class="portfolio-item">
+        <div class="item-inner">
+         <h5>
+          No Events under here.
+        </h5>
+        <div class="overlay">
+
         </div>
-    </header><!--/header-->
-    <section id="main-slider" class="no-margin">
-        <div class="carousel slide wet-asphalt">
-            <ol class="carousel-indicators">
-                <li data-target="#main-slider" data-slide-to="0" class="active"></li>
-                <li data-target="#main-slider" data-slide-to="1"></li>
-                <li data-target="#main-slider" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="item active" style="background-image: url(/assets/sing1.jpg)">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="carousel-content centered">
-                                    <h2 class="animation animated-item-1">Powerful and Responsive Web Design</h2>
-                                    <p class="animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!--/.item-->
-                <div class="item" style="background-image: url(/assets/photography.jpg)">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="carousel-content center centered">
-                                    <h2 class="boxed animation animated-item-1">Clean, Crisp, Powerful and Responsive Web Design</h2>
-                                    <p class="boxed animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                    <br>
-                                    <a class="btn btn-md animation animated-item-3" href="#">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!--/.item-->
-                <div class="item" style="background-image: url(/assets/dance.jpg)">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="carousel-content centered">
-                                    <h2 class="animation animated-item-1">Powerful and Responsive Web Design Theme</h2>
-                                    <p class="animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
-                                    <a class="btn btn-md animation animated-item-3" href="#">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!--/.item-->
-            </div><!--/.carousel-inner-->
-        </div><!--/.carousel-->
-        <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
-            <img src="/assets/sprite_prev.png"></a>
-        </a>
-        <a class="next hidden-xs" href="#main-slider" data-slide="next">
-             <img src="/assets/sprite_next.png"></a>
-        </a>
-    </section><!--/#main-slider-->
+      </div>
+    </div>
+  </div> 
+  <%else%>
+  <% @upcoming_events.each_with_index do |e,index| %>
+  <div class="col-xs-4">
+    <div class="portfolio-item">
+     <div class="item-inner">
+      <img class="img-responsive" height="285" src="<%= e.cover_pic_url%>" alt="">
+      <h5>
+       <%= e.name%>
+     </h5>
+     <div class="overlay">
 
+     </div>
+   </div>
+ </div>
+ <% if e.user_events.where(:user_id=>session[:current_user])%>
+ <%= link_to 'Participate', '', :class=>"btn btn-success", :id=>"participate",:disabled =>"disabled"%>
+ <%else%>
+ <%= link_to 'Participate',participate_event_home_path(e), :class=>"btn btn-success", :id=>"participate"%>
+ <%end%>
+</div> 
+<% break unless index == 2 %>
+<%end%> 
+<%end%>                          
+</div><!--/.row-->
+</div><!--/.item-->
+</div>
+</div>
+</div>
+</div><!--/.row-->
+</div>
+<!-- </section> -->
+<!--/#recent-works-->
 
+<!-- <section id="recent-works"> -->
+<h2 width="100%" style="background-color:#34495e;color:white">Ongoing Events</h2>
+<div class="container">
+  <div class="row">
+   <div class="col-md-3">
+    <h3>View the Live Auditions!!</h3>
+    <p>The audition for these events are currently ongoing. Vote for your favourite and make them win...</p>
+    <div class="btn-group">
+     <%= link_to 'View More', ongoing_home_index_path, :class=>"btn btn-danger"%>
+   </div>
 
-  	<!-- <section id="recent-works"> -->
-  	<h2 width="100%" style="background-color:#34495e;color:white">Upcoming Events</h2>
-  	<div class="container">
-  		<div class="row">
-  			<div class="col-md-3">
-  				<h3>More fun on its way!!</h3>
-  				<p>These are the top upcoming events. Participate and showcase your talent...</p>
-  				<div class="btn-group">
-  					<%= link_to 'View More', upcoming_home_index_path, :class=>"btn btn-danger"%>
-  				</div>
+   <p class="gap"></p>
+ </div>
+ <div class="col-md-9">
+  <div id="scroller" class="carousel slide">
+   <div class="carousel-inner">
+    <div class="item active">
+     <div class="row">
+       <% unless @ongoing_events.any? %>
+       <div class="col-xs-4">
+         <div class="portfolio-item">
+          <div class="item-inner">
+           <h5>
+            No Events under here.
+          </h5>
+          <div class="overlay">
 
-  				<p class="gap"></p>
-  			</div>
-  			<div class="col-md-9">
-  				<div id="scroller" class="carousel slide">
-  					<div class="carousel-inner">
-  						<div class="item active">
-  							<div class="row">
-  								<% unless @upcoming_events.any? %>
-  									<div class="col-xs-4">
-  									<div class="portfolio-item">
-  										<div class="item-inner">
-  											<h5>
-  												No Events under here.
-  											</h5>
-  											<div class="overlay">
+          </div>
+        </div>
+      </div>
+    </div> 
+    <%else%>
+    <% @ongoing_events.each_with_index do |e,index| %>
+    <div class="col-xs-4">
+      <div class="portfolio-item">
+       <div class="item-inner">
+        <img class="img-responsive" height="285" src="<%= e.cover_pic_url%>" alt="">
+        <h5>
+         <%= e.name%>
+       </h5>
+       <div class="overlay">
 
-  											</div>
-  										</div>
-  									</div>
-  								</div> 
-  								<%else%>
-  								<% @upcoming_events.each_with_index do |e,index| %>
-	  								<div class="col-xs-4">
-	  									<div class="portfolio-item">
-	  										<div class="item-inner">
-	  											<img class="img-responsive" height="285" src="<%= e.cover_pic_url%>" alt="">
-	  											<h5>
-	  												<%= e.name%>
-	  											</h5>
-	  											<div class="overlay">
+       </div>
+     </div>
+   </div>
+ </div> 
+ <% break unless index == 2 %>
+ <%end%> 
+ <%end%>
+</div><!--/.row-->
+</div><!--/.item-->
+</div>
+</div>
+</div>
+</div><!--/.row-->
+</div>
+<!-- </section> -->
+<!--/#recent-works-->
 
-	  											</div>
-	  										</div>
-	  									</div>
-	  									<% if e.user_events.where(:user_id=>session[:current_user])%>
-	  									<%= link_to 'Participate', '', :class=>"btn btn-success", :id=>"participate",:disabled =>"disabled"%>
-	  									<%else%>
-	  									<%= link_to 'Participate',participate_event_home_path(e), :class=>"btn btn-success", :id=>"participate"%>
-	  									<%end%>
-	  								</div> 
-	  								<% break unless index == 2 %>
-	  								<%end%> 
-	  							<%end%>                          
-  							</div><!--/.row-->
-  						</div><!--/.item-->
-  					</div>
-  				</div>
-  			</div>
-  		</div><!--/.row-->
-  	</div>
-  	<!-- </section> -->
-  	<!--/#recent-works-->
+<!-- <section id="recent-works"> -->
+<h2 width="100%" style="background-color:#34495e;color:white">Results</h2>
+<div class="container">
+  <div class="row">
+   <div class="col-md-3">
+    <h3>The Best of the Lot!!</h3>
+    <p>The winners for each event who have proved themselves and gained most the public support.</p>
+    <div class="btn-group">
+     <%= link_to 'View More', results_home_index_path, :class=>"btn btn-danger"%>
+   </div>
 
-  	<!-- <section id="recent-works"> -->
-  	<h2 width="100%" style="background-color:#34495e;color:white">Ongoing Events</h2>
-  	<div class="container">
-  		<div class="row">
-  			<div class="col-md-3">
-  				<h3>View the Live Auditions!!</h3>
-  				<p>The audition for these events are currently ongoing. Vote for your favourite and make them win...</p>
-  				<div class="btn-group">
-  					<%= link_to 'View More', ongoing_home_index_path, :class=>"btn btn-danger"%>
-  				</div>
+   <p class="gap"></p>
+ </div>
+ <div class="col-md-9">
+  <div id="scroller" class="carousel slide">
+   <div class="carousel-inner">
+    <div class="item active">
+     <div class="row">
+       <% unless @results.any? %>
+       <div class="col-xs-4">
+         <div class="portfolio-item">
+          <div class="item-inner">
+           <h5>
+            No Events under here.
+          </h5>
+          <div class="overlay">
 
-  				<p class="gap"></p>
-  			</div>
-  			<div class="col-md-9">
-  				<div id="scroller" class="carousel slide">
-  					<div class="carousel-inner">
-  						<div class="item active">
-  							<div class="row">
-  							<% unless @ongoing_events.any? %>
-  									<div class="col-xs-4">
-  									<div class="portfolio-item">
-  										<div class="item-inner">
-  											<h5>
-  												No Events under here.
-  											</h5>
-  											<div class="overlay">
+          </div>
+        </div>
+      </div>
+    </div> 
+    <%else%>
+    <% @results.each_with_index do |e,index| %>
+    <div class="col-xs-4">
+      <div class="portfolio-item">
+       <div class="item-inner">
+        <img class="img-responsive" height="285" src="<%= e.cover_pic_url%>" alt="">
+        <h5>
+         <%= e.name%>
+       </h5>
+       <div class="overlay">
 
-  											</div>
-  										</div>
-  									</div>
-  								</div> 
-  								<%else%>
-	  								<% @ongoing_events.each_with_index do |e,index| %>
-	  								<div class="col-xs-4">
-	  									<div class="portfolio-item">
-	  										<div class="item-inner">
-	  											<img class="img-responsive" height="285" src="<%= e.cover_pic_url%>" alt="">
-	  											<h5>
-	  												<%= e.name%>
-	  											</h5>
-	  											<div class="overlay">
-
-	  											</div>
-	  										</div>
-	  									</div>
-	  								</div> 
-	  								<% break unless index == 2 %>
-	  								<%end%> 
-	  							<%end%>
-  							</div><!--/.row-->
-  						</div><!--/.item-->
-  					</div>
-  				</div>
-  			</div>
-  		</div><!--/.row-->
-  	</div>
-  	<!-- </section> -->
-  	<!--/#recent-works-->
-
-  	<!-- <section id="recent-works"> -->
-  	<h2 width="100%" style="background-color:#34495e;color:white">Results</h2>
-  	<div class="container">
-  		<div class="row">
-  			<div class="col-md-3">
-  				<h3>The Best of the Lot!!</h3>
-  				<p>The winners for each event who have proved themselves and gained most the public support.</p>
-  				<div class="btn-group">
-  					<%= link_to 'View More', results_home_index_path, :class=>"btn btn-danger"%>
-  				</div>
-
-  				<p class="gap"></p>
-  			</div>
-  			<div class="col-md-9">
-  				<div id="scroller" class="carousel slide">
-  					<div class="carousel-inner">
-  						<div class="item active">
-  							<div class="row">
-  							<% unless @results.any? %>
-  									<div class="col-xs-4">
-  									<div class="portfolio-item">
-  										<div class="item-inner">
-  											<h5>
-  												No Events under here.
-  											</h5>
-  											<div class="overlay">
-
-  											</div>
-  										</div>
-  									</div>
-  								</div> 
-  								<%else%>
-	  								<% @results.each_with_index do |e,index| %>
-	  								<div class="col-xs-4">
-	  									<div class="portfolio-item">
-	  										<div class="item-inner">
-	  											<img class="img-responsive" height="285" src="<%= e.cover_pic_url%>" alt="">
-	  											<h5>
-	  												<%= e.name%>
-	  											</h5>
-	  											<div class="overlay">
-
-	  											</div>
-	  										</div>
-	  									</div>
-	  								</div> 
-	  								<% break unless index == 2 %>
-	  								<%end%> 
-	  							<%end%>
-  							</div><!--/.row-->
-  						</div><!--/.item-->
-  					</div>
-  				</div>
-  			</div>
-  		</div><!--/.row-->
-  	</div>
-  	<!-- </section> -->
-  </body>
-  </html>
+       </div>
+     </div>
+   </div>
+ </div> 
+ <% break unless index == 2 %>
+ <%end%> 
+ <%end%>
+</div><!--/.row-->
+</div><!--/.item-->
+</div>
+</div>
+</div>
+</div><!--/.row-->
+</div>
+<!-- </section> -->

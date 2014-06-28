@@ -52,14 +52,14 @@ class HomeController < ApplicationController
   def new
     user = User.find_by_gplus(params[:gplus])
     if user
-      session[:current_user] = user
+      session[:current_user] = user.id
       redirect_to landing_home_index_path, notice: "You are already registered!"
     else
       @fullname = params[:fullname]
       @gplusId = params[:gplus]
       u = User.new(:name => params[:fullname], :gplus => params[:gplus], :email=> params[:email])
       if u.save
-        session[:current_user] = user
+        session[:current_user] = u.id
        redirect_to profile_home_path(u), notice: "User with name #{@fullname} and Google+ ID #{@gplusId} has been successfully registered!"
       else
         redirect_to root_path and return  
@@ -114,6 +114,11 @@ class HomeController < ApplicationController
 
   def about_us
     
+  end
+
+  def my_events
+    current_user = User.find session[:current_user]
+    @events = current_user.events
   end
 
   private
