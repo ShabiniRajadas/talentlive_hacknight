@@ -1,6 +1,5 @@
 class Admin::HomesController < ApplicationController
 	before_filter :set_event, only: :events
-	before_filter :check_role
 
 	def events
 		@events = Event.all
