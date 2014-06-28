@@ -59,7 +59,7 @@ class HomeController < ApplicationController
       @gplusId = params[:gplus]
       u = User.new(:name => params[:fullname], :gplus => params[:gplus], :email=> params[:email])
       if u.save
-        session[:current_user] = user.id
+        session[:current_user] = u.id
        redirect_to profile_home_path(u), notice: "User with name #{@fullname} and Google+ ID #{@gplusId} has been successfully registered!"
       else
         redirect_to root_path and return  

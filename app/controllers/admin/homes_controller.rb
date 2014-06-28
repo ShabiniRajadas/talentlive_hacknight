@@ -1,5 +1,6 @@
 class Admin::HomesController < ApplicationController
 	before_filter :set_event, only: :events
+	before_filter :check_role
 
 	def events
 		@events = Event.all
@@ -46,8 +47,6 @@ class Admin::HomesController < ApplicationController
 	end
 
 	def save_json_data
-		p "(((((((((((((((((((((((9"
-			p params
   	render :json => {:data => {:hang_out_url => params[:hangoutUrl], :topic => params[:topic]}}
   	user_id = params[:id].split('@')
   	@user = User.find(user_id[0].to_i)
@@ -68,5 +67,10 @@ class Admin::HomesController < ApplicationController
 
 	def event_params
       params.require(:event).permit(:name, :about, :rules, :category, :first_prize_info, :second_prize_info, :third_prize_info, :audition_start_datetime, :audition_end_datetime, :cover_pic_url)
+    end
+
+    def check_role
+    	user = User.find(session[:current_user])
+    	redirect_to root_path and return unless user.role == "admin"
     end
 end
