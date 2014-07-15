@@ -50,7 +50,7 @@
             // and we will pass some of these along to the server.
             var param = getParameters();
             var now = new Date();
-            
+            alert(2);
             // At this point, we can access the Hangout API functions
             var hangoutUrl = gapi.hangout.getHangoutUrl();
             

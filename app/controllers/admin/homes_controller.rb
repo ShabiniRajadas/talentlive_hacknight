@@ -1,5 +1,10 @@
 class Admin::HomesController < ApplicationController
 	before_filter :set_event, only: :events
+  before_filter :set_access
+
+def set_access
+ @response.headers["Access-Control-Allow-Origin"] = "*"
+end
 
 	def events
 		@events = Event.all
