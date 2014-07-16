@@ -1,11 +1,11 @@
 class Admin::HomesController < ApplicationController
 	before_filter :set_event, only: :events
-  # after_filter :set_access_control_headers, only: :audition
+  before_filter :set_access_control_headers, only: :save_json_data
 
-  # def set_access_control_headers 
-  #   headers['Access-Control-Allow-Origin'] = '*' 
-  #   headers['Access-Control-Request-Method'] = '*' 
-  # end
+  def set_access_control_headers 
+    headers['Access-Control-Allow-Origin'] = '*' 
+    headers['Access-Control-Request-Method'] = '*' 
+  end
 
 	def events
 		@events = Event.all

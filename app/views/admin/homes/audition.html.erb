@@ -14,7 +14,7 @@
         <%= t.name %>
       </div>
       <div class="col-md-6">
-        <form action= "https://talkgadget.google.com/hangouts/_" method = "GET">
+        <form action= "https://talkgadget.google.com/hangouts/_" method = "GET" >
         <input type = "hidden" name = "gid" value = "1009023439918">
         <input type = "hidden" name = "hso" value = "0">
         <select name= "gd">
@@ -29,8 +29,11 @@
     <h1> No Participants</h1>
 <% end %>
 
-</div>
 
+
+<script src="//hagoutsapi.talkgadget.google.com/talkgadget/apps/gadgets/js/rpc.js"></script>
+<script src="//hagoutsapi.talkgadget.google.com/hangouts/api/hangout.js?v=1.0"></script>
+<script src="//www.google.com/jsapi"></script>
 
 ========================================================
 
