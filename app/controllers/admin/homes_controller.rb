@@ -1,5 +1,11 @@
 class Admin::HomesController < ApplicationController
 	before_filter :set_event, only: :events
+  after_filter :set_access_control_headers, only: :audition
+
+  def set_access_control_headers 
+    headers['Access-Control-Allow-Origin'] = 'https://safe-fjord-8999.herokuapp.com' 
+    headers['Access-Control-Request-Method'] = '*' 
+  end
 
 	def events
 		@events = Event.all
