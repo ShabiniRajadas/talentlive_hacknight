@@ -1,33 +1,18 @@
 <section >
-<h2 width="100%" style="background-color:#34495e;color:white">Ongoing Events</h2>
-<div class="container">
-	<div class="row">
-		<div class="col-md-9">
-			<div id="scroller" class="carousel slide">
-				<div class="carousel-inner">
-					<div class="item active">
-						<% unless @ongoing_events.any? %>
-              <div class="row">
-								<div class="col-xs-4">
-								<div class="portfolio-item">
-									<div class="item-inner">
-										<h5>
-											No Events under here.
-										</h5>
-										<div class="overlay">
-
-										</div>
-									</div>
-								</div>
-							</div> 
-							<%else%>
-							<% @ongoing_events.each_with_index do |e,index| %>
+	<h2 width="100%" style="background-color:#34495e;color:white">Ongoing Events</h2>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9">
+				<div id="scroller" class="carousel slide">
+					<div class="carousel-inner">
+						<div class="item active">
+							<% unless @ongoing_events.any? %>
+							<div class="row">
 								<div class="col-xs-4">
 									<div class="portfolio-item">
 										<div class="item-inner">
-											<img class="img-responsive" height="285" src="<%= e.cover_pic_url%>" alt="">
 											<h5>
-												<%= e.name%>
+												No Events under here.
 											</h5>
 											<div class="overlay">
 
@@ -35,9 +20,20 @@
 										</div>
 									</div>
 								</div> 
-								<%end%> 
-                </div><!--/.row-->
-							<%end%>                          
+								<%else%>
+								<% @ongoing_events.each_with_index do |e,index| %>
+								<div class="col-xs-4">
+									<h5>
+												<%= e.name%>
+											</h5>
+									<iframe width="420" height="345"
+									src="https://www.youtube.com/v/NurDNa_taLU">
+								</iframe>
+								<%= image_tag "vote-now.jpg", width: "150"%>
+							</div> 
+							<%end%> 
+						</div><!--/.row-->
+						<%end%>                          
 					</div><!--/.item-->
 				</div>
 			</div>
