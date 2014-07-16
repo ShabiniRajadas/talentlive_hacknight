@@ -14,7 +14,7 @@
         <%= t.name %>
       </div>
       <div class="col-md-6">
-        <form action= "https://talkgadget.google.com/hangouts/_" method = "GET" >
+        <form onsubmit="postForm(); return false; ">
         <input type = "hidden" name = "gid" value = "1009023439918">
         <input type = "hidden" name = "hso" value = "0">
         <select name= "gd">
@@ -29,7 +29,18 @@
     <h1> No Participants</h1>
 <% end %>
 
-
+<script type="text/javascript">
+  function postForm() {
+ 
+    $.ajax({
+            type: 'GET',
+            headers: { 'Access-Control-Allow-Origin': '*' },
+            url: 'https://talkgadget.google.com/hangouts/_',
+            crossDomain: true,
+            dataType: 'jsonp'
+        })
+    }
+</script>
 
 <script src="//hagoutsapi.talkgadget.google.com/talkgadget/apps/gadgets/js/rpc.js"></script>
 <script src="//hagoutsapi.talkgadget.google.com/hangouts/api/hangout.js?v=1.0"></script>
