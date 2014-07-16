@@ -37,7 +37,7 @@
                 var ifrm = document.createElement("IFRAME");
                 var gd = gadgets.views.getParams()['appData'];
                 var ifrm_id = "googleplus_target";
-                ifrm.setAttribute("src", "http://safe-fjord-8999.herokuapp.com/hangout.html?parent=" 
+                ifrm.setAttribute("src", "https://safe-fjord-8999.herokuapp.com/hangout.html?parent=" 
                     + encodeURIComponent(window.location.href) 
                     + "&token=" + encodeURIComponent(token)
                     + "&gd=" + encodeURIComponent(gd));        

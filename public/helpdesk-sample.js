@@ -31,7 +31,7 @@ onApiReady = function(){
     var hangoutUrl = gapi.hangout.getHangoutUrl();
     
     //Get the URL of this javascript, so we can call a nearby page with this URL info
-    var callbackUrl = 'http://safe-fjord-8999.herokuapp.com/register_hangout.json';
+    var callbackUrl = 'https://safe-fjord-8999.herokuapp.com/admin/register_hangout';
     
     // Make the call via AJAX.
     // The data are all passed as parameters in the call
