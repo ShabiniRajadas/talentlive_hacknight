@@ -121,6 +121,10 @@ class HomeController < ApplicationController
     @events = current_user.events
   end
 
+  def event_details
+    @event = Event.find params[:id]
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

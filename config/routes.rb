@@ -21,7 +21,7 @@ Rails.application.routes.draw do
         get 'profile'
         patch 'profile_create'
         get 'my_events', as: :my_events
-
+        get 'event_details', as: :event_details
       end
   
       collection do
